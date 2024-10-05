@@ -1,0 +1,27 @@
+
+services:
+  app:
+    build: .
+
+    networks:
+      - hello
+
+  nginx:
+    image: nginx:latest
+
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+    depends_on:
+      - app
+    ports:
+      - "3000:3000"
+    networks:
+      - hello
+
+
+networks:
+  hello:
+    ipam : 
+      driver : default
+      config : 
+        - subnet : 14.14.0.0/24
