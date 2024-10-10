@@ -31,12 +31,21 @@ Ensure you have the following installed on your machine:
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/sriraj66/Docker-loadbalancer.git
-   cd Docker-loadbalancer.git```
+```bash
+git clone https://github.com/sriraj66/Docker-loadbalancer.git
+cd Docker-loadbalancer.git
+```
 2. Compose the Docker File:
    
-  ``bash
-    sudo docker compose up -d --scale app=5```
+```bash
+sudo docker compose up -d --scale app=5
+```
 3. Status:
 - All 5 app services running in port 3000
+  
+4. Extending the services:
+   
+```bash
+sudo docker compose down
+sudo docker compose up -d --scale app=10
+```
